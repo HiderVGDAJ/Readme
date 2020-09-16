@@ -1,0 +1,9 @@
+if (Input.GetKeyDown("up"))
+        {
+            print("higher");
+        }
+        
+        if (Input.GetKeyDown("down"))
+        {
+            print("lower");
+        }
