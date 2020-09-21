@@ -3,39 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 public class HelloWorld : MonoBehaviour
 {
-    int maxGuess = 1001;
-    int minGuess = 1;
-    int guess = 500;
+    int maxGuess = 1001;            // Integrated a max guess value of 1001  
+    int minGuess = 1;               // Integrated a min guess value of 1
+    int guess = 500;                // Integrated a base guess to begin the game with of 500
     // Start is called before the first frame update
     void Start()   // Start Method
     {
-        Debug.Log("Welcome");
-        Debug.Log("Pick a number in your head");
-        Debug.Log("Highest Number is:" + (maxGuess -1));
-        Debug.Log("Lowest Number is:" + minGuess);
-        Debug.Log("My guess is: " + guess);
-        Debug.Log("If your number is higher, press up");
-        Debug.Log("If your number is lower, press down");
+        Debug.Log("Welcome");                       // User instructions
+        Debug.Log("Pick a number in your head");            // User instructions
+        Debug.Log("Highest Number is:" + (maxGuess -1));     // Used maxGuess -1 to fix bug
+        Debug.Log("Lowest Number is:" + minGuess);           // Showing minimum guess value of 1
+        Debug.Log("My guess is: " + guess);                 // displaying first guesss of 500 to narrow it down
+        Debug.Log("If your number is higher, press up");    // User instructions
+        Debug.Log("If your number is lower, press down");   // User instructions
     }
     // Update is called once per frame
     void Update()  //Update Method
     {
-        if (Input.GetKeyDown("return"))
+        if (Input.GetKeyDown("return"))         // Taking user input if the number is guessed correctly 
         {
-            Debug.Log("I guessed it, I am the best");
+            Debug.Log("I guessed it, I am the best");   // Message displayed if users number is guessed 
         }
-
-        if (Input.GetKeyDown("down"))
+        if (Input.GetKeyDown("down"))       // Taking user input if the number is lower than the guess 
         {
-            maxGuess = guess;
-            guess = (maxGuess + minGuess) / 2;
-            Debug.Log("Hmmm... my new guess is..." + guess);
+            maxGuess = guess;           // Adjustment to make next guess more accurate 
+            guess = (maxGuess + minGuess) / 2;      // Adjustment to make next guess more accurate
+            Debug.Log("Hmmm... my new guess is..." + guess);        // Displaying the new guess to User
         }
-        if (Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("up"))         // Taking user input if number is higher than guess
         {
-            minGuess = guess;
-            guess = (maxGuess + minGuess) / 2;
-            Debug.Log("Hmmm... my new guess is..." + guess);
+            minGuess = guess;           // Adjustment to make next guess more accurate
+            guess = (maxGuess + minGuess) / 2;      // Adjustment to make next guess more accurate
+            Debug.Log("Hmmm... my new guess is..." + guess);   // Displaying new guess to User
         }
     }
 }
