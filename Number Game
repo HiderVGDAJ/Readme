@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class HelloWorld : MonoBehaviour
+{
+    int maxGuess = 1001;
+    int minGuess = 1;
+    int guess = 500;
+    // Start is called before the first frame update
+    void Start()   // Start Method
+    {
+        Debug.Log("Welcome");
+        Debug.Log("Pick a number in your head");
+        Debug.Log("Highest Number is:" + (maxGuess -1));
+        Debug.Log("Lowest Number is:" + minGuess);
+        Debug.Log("My guess is: " + guess);
+        Debug.Log("If your number is higher, press up");
+        Debug.Log("If your number is lower, press down");
+    }
+    // Update is called once per frame
+    void Update()  //Update Method
+    {
+        if (Input.GetKeyDown("return"))
+        {
+            Debug.Log("I guessed it, I am the best");
+        }
+
+        if (Input.GetKeyDown("down"))
+        {
+            maxGuess = guess;
+            guess = (maxGuess + minGuess) / 2;
+            Debug.Log("Hmmm... my new guess is..." + guess);
+        }
+        if (Input.GetKeyDown("up"))
+        {
+            minGuess = guess;
+            guess = (maxGuess + minGuess) / 2;
+            Debug.Log("Hmmm... my new guess is..." + guess);
+        }
+    }
+}
